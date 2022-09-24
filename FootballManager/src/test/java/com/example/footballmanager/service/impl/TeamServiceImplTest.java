@@ -6,13 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-import com.example.footballmanager.dto.PlayerDTO;
 import com.example.footballmanager.dto.TeamDTO;
-import com.example.footballmanager.exception.PlayerNotFoundException;
 import com.example.footballmanager.exception.TeamNotFoundException;
-import com.example.footballmanager.persistence.dao.PlayerRepository;
 import com.example.footballmanager.persistence.dao.TeamRepository;
-import com.example.footballmanager.persistence.model.Player;
 import com.example.footballmanager.persistence.model.Team;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,8 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)

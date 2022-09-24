@@ -1,15 +1,12 @@
 package com.example.footballmanager.controller;
 
 import com.example.footballmanager.dto.PlayerDTO;
-import com.example.footballmanager.dto.TeamDTO;
 import com.example.footballmanager.service.PlayerService;
-import com.example.footballmanager.service.TeamService;
 import com.example.footballmanager.validation.BasicInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.mapstruct.control.MappingControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -37,6 +34,7 @@ public class PlayerController {
   @GetMapping(value = "/{id}")
   @ApiOperation(value = "Get player by id")
   public PlayerDTO getPlayer(@PathVariable int id) {
+    System.out.println("controller " + id);
     log.info("Getting player with id {}", id);
     return playerService.getPlayer(id);
   }

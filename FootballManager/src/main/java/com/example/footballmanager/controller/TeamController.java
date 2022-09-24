@@ -1,6 +1,5 @@
 package com.example.footballmanager.controller;
 
-import com.example.footballmanager.dto.PlayerDTO;
 import com.example.footballmanager.dto.TeamDTO;
 import com.example.footballmanager.service.TeamService;
 import com.example.footballmanager.validation.BasicInfo;
