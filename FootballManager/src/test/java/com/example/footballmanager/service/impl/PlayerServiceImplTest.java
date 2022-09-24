@@ -25,7 +25,6 @@ import java.util.Optional;
 public class PlayerServiceImplTest {
   private static final int MOCK_ID = 77;
   private static final String MOCK_NAME = "name";
-  private static final String MOCK_SURNAME = "surname";
   private static final int MOCK_UPDATED_ID = 88;
   @InjectMocks private PlayerServiceImpl playerService;
   @Mock private PlayerRepository playerRepository;
