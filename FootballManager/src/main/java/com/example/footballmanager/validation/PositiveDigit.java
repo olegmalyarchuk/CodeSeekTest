@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PositiveDigit {
-  String message() default "Invalid digit format";
+  String message() default "Invalid digit format!";
 
   Class<?>[] groups() default {};
 
