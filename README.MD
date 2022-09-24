@@ -1,6 +1,8 @@
 Postman Collection: https://www.getpostman.com/collections/1728895f526bfcd3b66a
 ![swagger](https://user-images.githubusercontent.com/93388658/192115939-755b63d0-735d-49ad-bb7c-a2afce7e5ea5.jpg)
 
+To run: Compile & java -jar FootballManager-0.0.1-SNAPSHOT.war
+
 Тестове завдання: "Футбольний менеджер"
 
 Реалізувати систему керування футбольними командами/гравцями з використанням Java 8 (мінімум), Spring Boot, Hibernate/JDBC Template .
