@@ -16,8 +16,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Player {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(nullable = false)
   @ApiModelProperty(notes = "Player ID")
   private int id;
 
@@ -33,12 +31,12 @@ public class Player {
   @ApiModelProperty(notes = "Player age")
   private int age;
 
-  @Column(nullable = false)
+  @Column(name = "experience_months", nullable = false)
   @ApiModelProperty(notes = "Player months of experience")
   private int experienceMonths;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "teamId", referencedColumnName = "id")
+  @JoinColumn(name = "team_id", referencedColumnName = "id")
   @ApiModelProperty(notes = "Player Team")
   private Team team;
 }

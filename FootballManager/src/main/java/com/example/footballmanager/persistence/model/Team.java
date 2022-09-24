@@ -18,7 +18,6 @@ import java.util.List;
 @AllArgsConstructor
 public class Team {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
   @ApiModelProperty(notes = "Team ID")
   private int id;
 
@@ -30,12 +29,7 @@ public class Team {
   @ApiModelProperty(notes = "Team Wallet")
   private int wallet;
 
-  @Column(nullable = false)
+  @Column(name = "commision_team", nullable = false)
   @ApiModelProperty(notes = "Team commision")
   private int commisionTeam;
-
-  @OneToMany(mappedBy = "team", fetch = FetchType.EAGER)
-  @Builder.Default
-  @ApiModelProperty(notes = "Team Players")
-  private List<Player> players = new ArrayList<>();
 }

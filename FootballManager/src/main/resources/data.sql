@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `FootballManager`.`Team` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `wallet` INT NOT NULL,
-  `commisionTeam` INT NULL DEFAULT 0,
+  `commision_team` INT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idTeam_UNIQUE` (`id` ASC) VISIBLE,
   UNIQUE INDEX `nameTeam_UNIQUE` (`name` ASC) VISIBLE)
@@ -36,13 +36,13 @@ CREATE TABLE IF NOT EXISTS `FootballManager`.`Player` (
   `name` VARCHAR(45) NOT NULL,
   `surname` VARCHAR(45) NOT NULL,
   `age` INT NOT NULL,
-  `expreienceMonths` INT NOT NULL,
-  `teamId` INT NOT NULL,
+  `experience_months` INT NOT NULL,
+  `team_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idPlayer_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `idTeam0_idx` (`teamId` ASC) VISIBLE,
+  INDEX `idTeam0_idx` (`team_id` ASC) VISIBLE,
   CONSTRAINT `idTeam0`
-    FOREIGN KEY (`teamId`)
+    FOREIGN KEY (`team_id`)
     REFERENCES `FootballManager`.`Team` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
