@@ -41,6 +41,14 @@ public class PlayerController {
     return playerService.getPlayer(id);
   }
 
+  @ResponseStatus(HttpStatus.OK)
+  @PutMapping(value = "/{id}")
+  @ApiOperation(value = "Update player by id")
+  public PlayerDTO updatePlayer(@PathVariable int id, @RequestBody PlayerDTO playerDTO) {
+    log.info("Updating player with id {}", id);
+    return playerService.updatePlayer(id, playerDTO);
+  }
+
   @DeleteMapping(value = "/{id}")
   @ApiOperation(value = "Delete player by id")
   public ResponseEntity<Void> deletePlayer(@PathVariable int id) {
@@ -59,7 +67,7 @@ public class PlayerController {
 
   @ResponseStatus(HttpStatus.OK)
   @ApiOperation(value = "Get all players by teamId")
-  @GetMapping(value = "/getById/{teamId}")
+  @GetMapping(value = "/getByTeamId/{teamId}")
   public List<PlayerDTO> getPlayersByTeamId(@PathVariable int teamId) {
     log.info("Getting players by teamId {}", teamId);
     return playerService.getPlayersByTeamId(teamId);

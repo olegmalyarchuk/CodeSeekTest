@@ -1,5 +1,6 @@
 package com.example.footballmanager.controller;
 
+import com.example.footballmanager.dto.PlayerDTO;
 import com.example.footballmanager.dto.TeamDTO;
 import com.example.footballmanager.service.TeamService;
 import com.example.footballmanager.validation.BasicInfo;
@@ -34,6 +35,14 @@ public class TeamController {
   public TeamDTO getTeam(@PathVariable int id) {
     log.info("Getting team with id {}", id);
     return teamService.getTeam(id);
+  }
+
+  @ResponseStatus(HttpStatus.OK)
+  @PutMapping(value = "/{id}")
+  @ApiOperation(value = "Update team by id")
+  public TeamDTO updateTeam(@PathVariable int id, @RequestBody TeamDTO teamDTO) {
+    log.info("Updating team with id {}", id);
+    return teamService.updateTeam(id, teamDTO);
   }
 
   @DeleteMapping(value = "/{id}")
