@@ -4,6 +4,7 @@ import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -12,8 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@EnableSwagger2
-public class SwaggerConfig extends WebMvcConfigurerAdapter {
+public class SwaggerConfig implements WebMvcConfigurer {
   @Bean
   public Docket api() {
     // @formatter:off
@@ -35,18 +35,5 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
     registry
         .addResourceHandler("/webjars/**")
         .addResourceLocations("classpath:/META-INF/resources/webjars/");
-  }
-
-  private ApiInfo metaData() {
-    ApiInfo apiInfo =
-        new ApiInfo(
-            "FootballManager REST API",
-            "Spring Boot REST API for FootballManager System",
-            "1.0",
-            "Terms of service",
-            "Oleh Maliarchuk",
-            "Apache License Version 2.0",
-            "https://www.apache.org/licenses/LICENSE-2.0");
-    return apiInfo;
   }
 }
