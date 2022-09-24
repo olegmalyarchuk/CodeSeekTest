@@ -2,6 +2,7 @@ package com.example.footballmanager.dto;
 
 import com.example.footballmanager.validation.AdvancedInfo;
 import com.example.footballmanager.validation.BasicInfo;
+import com.example.footballmanager.validation.CommisionRange;
 import com.example.footballmanager.validation.PositiveDigit;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
@@ -30,6 +31,7 @@ public class TeamDTO {
   private int wallet;
 
   @PositiveDigit
+  @CommisionRange
   @NotNull(message = "{validation.id.not_null}")
   private int commisionTeam;
 
