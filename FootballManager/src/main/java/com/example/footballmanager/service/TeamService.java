@@ -16,7 +16,7 @@ public interface TeamService {
   int calculateTeamsNumber();
 
   /**
-   *This method implements the transfer of the player
+   * This method implements the transfer of the player
    *
    * @param sellerTeamId team who sells the player
    * @param buyerTeamId team who buys the player

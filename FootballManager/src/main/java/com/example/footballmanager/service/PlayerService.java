@@ -1,7 +1,6 @@
 package com.example.footballmanager.service;
 
 import com.example.footballmanager.dto.PlayerDTO;
-import com.example.footballmanager.dto.TeamDTO;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
