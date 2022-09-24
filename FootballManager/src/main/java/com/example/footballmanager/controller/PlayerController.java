@@ -19,7 +19,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/players")
 @RequiredArgsConstructor
 @Api(value = "players", description = "Operations related to players in FootballManager Program")
 public class PlayerController {

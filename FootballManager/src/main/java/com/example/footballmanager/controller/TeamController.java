@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/teams")
 @RequiredArgsConstructor
 @Api(value = "teams", description = "Operations related to teams in FootballManager Program")
 public class TeamController {
