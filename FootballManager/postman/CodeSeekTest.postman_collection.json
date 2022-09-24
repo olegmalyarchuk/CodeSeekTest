@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "7aaebcb3-e30f-4a15-98f6-770f125dc0c3",
+		"name": "CodeSeekTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get count of all teams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/teams/count",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"id\": 25,\r\n    \"teamId\": 4,\r\n    \"name\": \"Lukas\",\r\n    \"surname\": \"Jensen\",\r\n    \"age\": 19,\r\n    \"experienceMonths\": 10\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/teams/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						""
+					],
+					"query": [
+						{
+							"key": null,
+							"value": " {\n    \"id\": 25,\n    \"teamId\": 4,\n    \"name\": \"Lukas\",\n    \"surname\": \"Jensen\",\n    \"age\": 19,\n    \"experienceMonths\": 10\n  }",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get player by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/teams/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update team by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"commisionTeam\": 5,\r\n  \"id\": 4,\r\n  \"name\": \"NewName\",\r\n  \"wallet\": 100000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/teams/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete team by id if there aint players",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/teams/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer player from one team to another",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/teams/sellerTeam/1/player/3/buyerTeam/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						"sellerTeam",
+						"1",
+						"player",
+						"3",
+						"buyerTeam",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get count of all players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/players/count",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 25,\r\n    \"teamId\": 4,\r\n    \"name\": \"Lukas\",\r\n    \"surname\": \"Jensen\",\r\n    \"age\": 19,\r\n    \"experienceMonths\": 10\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/players",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all players by teamId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/players/getByTeamId/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"getByTeamId",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update player by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 25,\r\n    \"teamId\": 4,\r\n    \"name\": \"newName\",\r\n    \"surname\": \"Jensen\",\r\n    \"age\": 19,\r\n    \"experienceMonths\": 10\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/players/25",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get player by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/players/25",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete player by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/players/25",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"25"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
