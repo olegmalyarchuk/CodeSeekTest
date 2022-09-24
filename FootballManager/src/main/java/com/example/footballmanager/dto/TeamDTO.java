@@ -1,5 +1,6 @@
 package com.example.footballmanager.dto;
 
+import com.example.footballmanager.persistence.model.Player;
 import com.example.footballmanager.validation.AdvancedInfo;
 import com.example.footballmanager.validation.BasicInfo;
 import com.example.footballmanager.validation.CommisionRange;
@@ -34,6 +35,4 @@ public class TeamDTO {
   @CommisionRange
   @NotNull(message = "{validation.id.not_null}")
   private int commisionTeam;
-
-  @Builder.Default private Collection<Integer> playersId = new ArrayList<>();
 }

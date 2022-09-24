@@ -19,6 +19,10 @@ public class PlayerDTO {
   @NotNull(message = "{validation.id.not_null}")
   private int id;
 
+  @PositiveDigit
+  @NotNull(message = "{validation.id.not_null}")
+  private int teamId;
+
   @Pattern(regexp = "^[A-ZА-Я][\\p{Alpha}А-Яа-я\\s-]{1,25}", groups = BasicInfo.class)
   @NotBlank(message = "{validation.name.not_null}", groups = AdvancedInfo.class)
   private String name;
@@ -34,8 +38,4 @@ public class PlayerDTO {
   @PositiveDigit
   @NotNull(message = "{validation.id.not_null}")
   private int experienceMonths;
-
-  @PositiveDigit
-  @NotNull(message = "{validation.id.not_null}")
-  private int teamId;
 }
