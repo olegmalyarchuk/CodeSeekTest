@@ -5,6 +5,7 @@ import com.example.footballmanager.exception.PlayerNotFoundException;
 import com.example.footballmanager.exception.TeamNotFoundException;
 import com.example.footballmanager.mapper.PlayerMapper;
 import com.example.footballmanager.mapper.TeamMapper;
+import com.example.footballmanager.persistence.dao.PlayerRepository;
 import com.example.footballmanager.persistence.dao.TeamRepository;
 import com.example.footballmanager.persistence.model.Player;
 import com.example.footballmanager.persistence.model.Team;
@@ -13,12 +14,15 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static java.lang.String.format;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class TeamServiceImpl implements TeamService {
 
   private final TeamRepository teamRepository;
+  private final PlayerRepository playerRepository;
 
   @Override
   public TeamDTO createTeam(TeamDTO teamDTO) {
@@ -56,5 +60,49 @@ public class TeamServiceImpl implements TeamService {
   public int calculateTeamsNumber() {
     log.info("TeamService: teams count {}", teamRepository.calculateTeamsNumber());
     return teamRepository.calculateTeamsNumber();
+  }
+
+  @Override
+  public String transferPlayer(int sellerTeamId, int buyerTeamId, int playerId) {
+    Team sellerTeam =
+        teamRepository
+            .findById(sellerTeamId)
+            .orElseThrow(
+                () ->
+                    new TeamNotFoundException(
+                        format("Team with id %d does not exist", sellerTeamId)));
+    Team buyerTeam =
+        teamRepository
+            .findById(buyerTeamId)
+            .orElseThrow(
+                () ->
+                    new TeamNotFoundException(
+                        format("Team with id %d does not exist", buyerTeamId)));
+    Player player =
+        playerRepository
+            .findById(playerId)
+            .orElseThrow(
+                () ->
+                    new PlayerNotFoundException(
+                        format("Player with id %d does not exist", playerId)));
+
+    Integer totalPrice = calculateTotalPrice(player, buyerTeam);
+
+    if (buyerTeam.getWallet() - totalPrice < 0) return "This player isn't affordable for you";
+
+    sellerTeam.setWallet(sellerTeam.getWallet() + totalPrice);
+    buyerTeam.setWallet(buyerTeam.getWallet() - totalPrice);
+    player.setTeam(buyerTeam);
+
+    playerRepository.save(player);
+    teamRepository.save(sellerTeam);
+    teamRepository.save(buyerTeam);
+    return "The transfer was successful!";
+  }
+
+  private int calculateTotalPrice(Player player, Team buyerTeam) {
+    Integer priceOfPlayer = player.getExperienceMonths() * 100000 / player.getAge();
+    Integer commission = priceOfPlayer * buyerTeam.getCommisionTeam();
+    return priceOfPlayer + commission;
   }
 }

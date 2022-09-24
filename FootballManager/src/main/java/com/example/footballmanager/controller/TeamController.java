@@ -51,4 +51,12 @@ public class TeamController {
     log.info("Calculating teams number{}", teamService.calculateTeamsNumber());
     return teamService.calculateTeamsNumber();
   }
+
+  @PutMapping("/sellerTeam/{sellerTeamId}/player/{playerId}/buyerTeam/{buyerTeamId}")
+  public ResponseEntity<String> transfer(
+      @PathVariable Integer sellerTeamId,
+      @PathVariable Integer playerId,
+      @PathVariable Integer buyerTeamId) {
+    return ResponseEntity.ok(teamService.transferPlayer(sellerTeamId, buyerTeamId, playerId));
+  }
 }

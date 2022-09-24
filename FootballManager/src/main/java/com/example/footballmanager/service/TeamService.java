@@ -14,4 +14,14 @@ public interface TeamService {
   void deleteTeam(int id);
 
   int calculateTeamsNumber();
+
+  /**
+   *This method implements the transfer of the player
+   *
+   * @param sellerTeamId team who sells the player
+   * @param buyerTeamId team who buys the player
+   * @param playerId player which will be transfered
+   * @return comment
+   */
+  String transferPlayer(int sellerTeamId, int buyerTeamId, int playerId);
 }
