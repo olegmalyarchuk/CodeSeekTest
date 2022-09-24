@@ -17,7 +17,7 @@ public class CommisionRangeValidator implements ConstraintValidator<CommisionRan
 
   @Override
   public boolean isValid(Integer i, ConstraintValidatorContext constraintValidatorContext) {
-    if (i != null && (i >= 0 && i <= 20)) return true;
+    if (i != null && (i >= 0 && i <= 10)) return true;
     return false;
   }
 }

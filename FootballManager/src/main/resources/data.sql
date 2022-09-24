@@ -53,10 +53,10 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO footballmanager.team VALUES(1, "Liverpool", 100000, 10);
-INSERT INTO footballmanager.team VALUES(2, "Flyde", 200000, 15);
+INSERT INTO footballmanager.team VALUES(1, "Liverpool", 100000, 1);
+INSERT INTO footballmanager.team VALUES(2, "Flyde", 200000, 2);
 INSERT INTO footballmanager.team VALUES(3, "Darwen", 125000, 5);
-INSERT INTO footballmanager.team VALUES(4, "Stanley", 250000, 20);
+INSERT INTO footballmanager.team VALUES(4, "Stanley", 250000, 9);
 
 INSERT INTO footballmanager.player VALUES(1, "Joe", "Gomez", 25, 24, 1);
 INSERT INTO footballmanager.player VALUES(2, "Andrew", "Robertson", 28, 20, 1);
